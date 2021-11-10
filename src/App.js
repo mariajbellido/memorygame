@@ -101,6 +101,13 @@ function App() {
     setDisabled(false);
   };
 
+  // Starts a new game automatically 
+
+  useEffect(() => {
+    shuffleCards()
+  }, [])
+
+
   return (
     <div className="App">
       <h1>Memory Game</h1>
@@ -111,6 +118,7 @@ function App() {
           <SingleCard key={card.id} card={card} handleChoice={handleChoice} flipped={ card === choiceOne || card === choiceTwo || card.matched} disabled={disabled}/>
         ))}
       </div>
+      <p> Turns: {turns} </p>
     </div>
   );
 }

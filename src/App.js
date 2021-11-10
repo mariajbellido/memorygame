@@ -7,12 +7,12 @@ import './App.css'
 
 const cardImages = [
 
-  { "src": "/assets/img/helmet-1.png"},
-  { "src": "/assets/img/potion-1.png"},
-  { "src": "/assets/img/ring-1.png"},
-  { "src": "/assets/img/scroll-1.png"},
-  { "src": "/assets/img/shield-1.png"},
-  { "src": "/assets/img/sword-1.png"}
+  { "src": "https://res.cloudinary.com/djy0sg0vl/image/upload/v1636555061/cards/scroll-1_ahduss.png"},
+  { "src": "https://res.cloudinary.com/djy0sg0vl/image/upload/v1636555061/cards/sword-1_nwmavc.png"},
+  { "src": "https://res.cloudinary.com/djy0sg0vl/image/upload/v1636555061/cards/potion-1_vrem5b.png"},
+  { "src": "https://res.cloudinary.com/djy0sg0vl/image/upload/v1636555061/cards/shield-1_gqxekf.png"},
+  { "src": "https://res.cloudinary.com/djy0sg0vl/image/upload/v1636555061/cards/ring-1_twi6vd.png"},
+  { "src": "https://res.cloudinary.com/djy0sg0vl/image/upload/v1636555061/cards/helmet-1_zosnoz.png"}
 
 ]
 
@@ -46,7 +46,7 @@ function App() {
           <div className="card" key={card.id}>
               <div> 
                 <img className="front" src={card.src} alt="card front" />
-                <img className="back" src="./assets/img/cover.png" alt="card cover" />
+                <img className="back" src="https://res.cloudinary.com/djy0sg0vl/image/upload/v1636555061/cards/cover_oy6ta9.png" alt="card cover" />
               </div>
           </div>
         ))}

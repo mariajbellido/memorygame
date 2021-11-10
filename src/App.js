@@ -23,6 +23,10 @@ function App() {
   const [cards, setCards] = useState([])
   const [turns, setTurns] = useState(0)
 
+  const [choiceOne, setChoiceOne] = useState(null)
+  const [choiceTwo, setChoiceTwo] = useState(null) 
+
+
   // Shuffle cards 
 
   const shuffleCards = () => {
@@ -36,7 +40,23 @@ function App() {
     setTurns(0)
   }
 
-  console.log(cards, turns)
+  // Handle choice 
+
+
+  /**
+   * If it is null, then it means that we don't have a selection for choice one. 
+   * If it evaluates to false, then it's null.  It will run setChoiceOnce. 
+   * 
+   * But, if it is not null, then it has a value. If it has a value, then it means that we already have a selection made (choiceOne).
+   * In other words, it will run setChoiceTwo. 
+   */
+  
+  const handleChoice = (card) => {
+    choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
+  }
+
+
+  // console.log(cards, turns)
 
   return (
     <div className="App">
@@ -45,7 +65,7 @@ function App() {
 
       <div className="card-grid">
         {cards.map(card => (
-          <SingleCard key={card.id} card={card}/>
+          <SingleCard key={card.id} card={card} handleChoice={handleChoice}/>
         ))}
       </div>
     </div>

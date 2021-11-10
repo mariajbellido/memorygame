@@ -7,21 +7,27 @@ import './App.css';
 const cardImages = [
   {
     src: 'https://res.cloudinary.com/djy0sg0vl/image/upload/v1636555061/cards/scroll-1_ahduss.png',
+    matched: false,
   },
   {
     src: 'https://res.cloudinary.com/djy0sg0vl/image/upload/v1636555061/cards/sword-1_nwmavc.png',
+    matched: false,
   },
   {
     src: 'https://res.cloudinary.com/djy0sg0vl/image/upload/v1636555061/cards/potion-1_vrem5b.png',
+    matched: false,
   },
   {
     src: 'https://res.cloudinary.com/djy0sg0vl/image/upload/v1636555061/cards/shield-1_gqxekf.png',
+    matched: false,
   },
   {
     src: 'https://res.cloudinary.com/djy0sg0vl/image/upload/v1636555061/cards/ring-1_twi6vd.png',
+    matched: false,
   },
   {
     src: 'https://res.cloudinary.com/djy0sg0vl/image/upload/v1636555061/cards/helmet-1_zosnoz.png',
+    matched: false,
   },
 ];
 
@@ -57,23 +63,30 @@ function App() {
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
   };
 
-  
+  // Comparing two selected cards
 
-
-  // Comparing two selected cards 
-
-  useEffect( () => {
+  useEffect(() => {
     if (choiceOne && choiceTwo) {
       if (choiceOne.src === choiceTwo.src) {
-        console.log("Those cards match")
-        resetTurn()
+        //console.log("Those cards match")
+        setCards((prevCards) => {
+          return prevCards.map((card) => {
+            if (card.src === choiceOne.src) {
+              return { ...card, matched: true };
+            } else {
+              return card;
+            }
+          });
+        });
+        resetTurn();
       } else {
-        console.log("Those cards do not match")
-        resetTurn()
+        //console.log("Those cards do not match")
+        resetTurn();
       }
     }
-  }, [choiceOne, choiceTwo])
+  }, [choiceOne, choiceTwo]);
 
+  console.log(cards);
 
   // Reset choices & increase turn
 
